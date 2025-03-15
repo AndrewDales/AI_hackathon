@@ -4,7 +4,8 @@ import json
 import os
 
 # Google Sheet details
-SHEET_ID = "1Hg1fvyvqoSDgN1T8AAt89o28_q-LlsuyjiNKXOborHw"
+#You can get the google sheet ID from the url of your google sheet.  It looks something like this:1Hg1fvyvqoSDgN1T8AAt89o28_q-LlsuyjiNKXOborHw
+#Provide this as SHEET_ID in the function call.
 
 # Path to save service account JSON key file
 SERVICE_ACCOUNT_FILE = "serviceAccountCreds.json"
@@ -34,7 +35,7 @@ creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE,
 service = build("sheets", "v4", credentials=creds)
 
 
-def googleSheetRead(RANGE="Sheet1!A2:A10"):
+def googleSheetRead(RANGE="Sheet1!A2:A10", SHEET_ID = "get_sheet_ID_from_web_URL"):
     # Read a cell / range
     request = service.spreadsheets().values().get(spreadsheetId=SHEET_ID, range=RANGE)
     response = request.execute()
@@ -44,7 +45,7 @@ def googleSheetRead(RANGE="Sheet1!A2:A10"):
     return (data)
 
 
-def googleSheetWrite(CELL="Sheet1!A2", VALUE="hello world"):
+def googleSheetWrite(CELL="Sheet1!A2", VALUE="hello world", SHEET_ID = "get_sheet_ID_from_web_URL"):
     # Update a cell
     request = service.spreadsheets().values().update(
         spreadsheetId=SHEET_ID,
@@ -57,7 +58,7 @@ def googleSheetWrite(CELL="Sheet1!A2", VALUE="hello world"):
     return (response)
 
 
-def googleSheetClear(RANGE="Sheet1!A1:B10"):
+def googleSheetClear(RANGE="Sheet1!A1:B10", SHEET_ID = "get_sheet_ID_from_web_URL"):
     # Clear a range
     service.spreadsheets().values().clear(
         spreadsheetId=SHEET_ID,

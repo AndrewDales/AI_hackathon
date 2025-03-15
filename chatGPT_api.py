@@ -7,7 +7,7 @@ client = OpenAI(
 gptModel = "gpt-4-turbo"
 
 
-def get_GPT_response(prompt, systemRole="You are a helpful assistant.", reponseFormat='text', json_schema=None):
+def get_GPT_response(prompt, systemRole="You are a helpful assistant.", reponseFormat='text', json_schema=None, gptModel = "gpt-4o-mini"):
     """
     Function to send a text prompt (and optionally an image) to OpenAI's GPT model.
 
