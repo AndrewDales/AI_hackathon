@@ -4,7 +4,7 @@ import json
 
 client = OpenAI(
     api_key="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")
-gptModel = "gpt-4-turbo"
+gptModel = "gpt-4o-mini"
 
 
 def get_GPT_response(prompt, systemRole="You are a helpful assistant.", reponseFormat='text', json_schema=None, gptModel = "gpt-4o-mini"):

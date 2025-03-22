@@ -1,2 +1,3 @@
 openai ~= 1.65.5
 google-api-python-client ~= 2.163.0
+pandas ~= 2.2.3
